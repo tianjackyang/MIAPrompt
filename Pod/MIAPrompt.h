@@ -37,7 +37,7 @@ typedef void (^MBProgressHUDManagerCompletionBlock)();
 
 - (void)showMessage:(NSString *)message mode:(MBProgressHUDMode)mode;
 - (void)showMessage:(NSString *)message mode:(MBProgressHUDMode)mode duration:(NSTimeInterval)duration;
-- (void)showMessage:(NSString *)message mode:(MBProgressHUDMode)mode duration:(NSTimeInterval)duration complection:(void (^)())completion whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue showWhileExecuting:(SEL)method onTarget:(id)target withObject:(id)object
+- (void)showMessage:(NSString *)message mode:(MBProgressHUDMode)mode duration:(NSTimeInterval)duration complection:(void (^)())completion whileExecutingBlock:(dispatch_block_t)block onQueue:(dispatch_queue_t)queue showWhileExecuting:(SEL)method onTarget:(id)target withObject:(id)object;
 
 - (void)showProgress:(float)progress;
 

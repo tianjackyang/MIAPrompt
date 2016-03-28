@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPrompt"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "MIAPrompt."
 
   # This description is used to generate tags and improve search results.
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "Images/*.png"
+  s.resources = "Pod/Images/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

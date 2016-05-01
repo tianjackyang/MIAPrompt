@@ -13,9 +13,10 @@ static MBProgressHUDManager* shareHUDInstance = nil;
 + (MBProgressHUDManager*)shareHudManager:(UIView*)view {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        shareHUDInstance = [[MBProgressHUDManager alloc] initWithView:view];
+        shareHUDInstance = [[MBProgressHUDManager alloc] init];
     });
     
+    [shareHUDInstance setBaseView:view];
     return shareHUDInstance;
 }
 
@@ -153,7 +154,7 @@ static MBProgressHUDManager* shareHUDInstance = nil;
         [self.HUD hide:YES afterDelay:duration];
     }
     else {
-        if (target == nil) {
+        if (target == nil && block != nil && completion != nil) {
             [self.HUD showAnimated:YES whileExecutingBlock:^{
                 //
                 block();
@@ -162,9 +163,12 @@ static MBProgressHUDManager* shareHUDInstance = nil;
                 completion();
             }];
         }
-        else
+        else if (method != nil && target != nil)
         {
             [self.HUD showWhileExecuting:method onTarget:target withObject:object animated:YES];
+        }
+        else {
+            [self.HUD show:YES];
         }
     }
 }
